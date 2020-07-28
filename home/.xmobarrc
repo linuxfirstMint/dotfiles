@@ -1,0 +1,90 @@
+Config {  
+
+   -- appearance
+     font = "xft:Migu 1M:size=13"
+   , bgColor =      "#1a1a1a"
+   , fgColor =      "#646464"
+ 
+   --, bgColor =      "#000000"
+   --, fgColor =      "#000000"
+
+   , position =     TopSize C 100 33
+   , border =       BottomB 0
+   , borderColor =  "#4e4e4e"
+
+   -- layout
+   , sepChar =  "%"   -- delineator between plugin names and straight text
+   , alignSep = "}{"  -- separator between left-right alignment
+   --, template = " %multicpu% | %memory% | %dynnetwork%} %StdinReader% {%RJTT% |%date%| %kbd% "
+   , template = " %StdinReader%} {%multicpu% %memory%  %dynnetwork% | %RJTT% |%date%| %kbd% "
+
+   -- general behavior
+   , lowerOnStart =     False   -- send to bottom of window stack on start
+   , hideOnStart =      False   -- start with window unmapped (hidden)
+   , allDesktops =      True    -- show on all desktops
+   , overrideRedirect = False   -- set the Override Redirect flag (Xlib)
+   , pickBroadest =     False   -- choose widest display (multi-monitor)
+   , persistent =       True    -- enable/disable hiding (True = disabled)
+
+   -- plugins
+   --   Numbers can be automatically colored according to their value. xmobar
+   --   decides color based on a three-tier/two-cutoff system, controlled by
+   --   command options:
+   --     --Low sets the low cutoff
+   --     --High sets the high cutoff
+   --
+   --     --low sets the color below --Low cutoff
+   --     --normal sets the color between --Low and --High cutoffs
+   --     --High sets the color above --High cutoff
+   --
+   --   The --template option controls how the plugin is displayed. Text
+   --   color can be set by enclosing in <fc></fc> tags. For more details
+   --   see http://projects.haskell.org/xmobar/#system-monitor-plugins.
+   -- 
+
+   , commands =
+        [
+        -- weather monitor
+        Run Weather "RJTT" [ "--template","<fc=#02bdc7><station> <skyCondition> <tempC></fc>"
+                             ] 36000
+                             
+        -- network activity monitor (dynamic interface resolution)
+        , Run DynNetwork     [ "--template" , "<tx> <rx>"
+                             , "--Low"      , "1000"       -- units: kB/s
+                             , "--High"     , "5000"       -- units: kB/s
+                             , "--low"      , "#02c74e"
+                             , "--normal"   , "#ffb600"
+                             , "--high"     , "#fc4067"
+                             ] 10
+
+        -- cpu activity monitor
+        , Run MultiCpu       [ "--template" , "<total0>% <total1>% <total2>% <total3>%"
+                             , "--Low"      , "50"         -- units: %
+                             , "--High"     , "85"         -- units: %
+                             , "--low"      , "#02c74e"
+                             , "--normal"   , "#ffb600"
+                             , "--high"     , "#fc4067"
+                             ] 10
+
+        -- memory usage monitor
+        , Run Memory         [ "--template" ,"<usedratio>"
+                             , "--Low"      , "20"        -- units: %
+                             , "--High"     , "90"        -- units: %
+                             , "--low"      , "#02c74e"
+                             , "--normal"   , "#ffb600"
+                             , "--high"     , "#fc4067"
+                             ] 10
+
+        -- time and date indicator 
+        --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
+        , Run Date           "<fc=#dee9f2>%F (%a) %T</fc>" "date" 10
+
+        -- keyboard layout indicator
+        , Run Kbd            [ ("us(dvorak)" , "<fc=#dee9f2>DV</fc>")
+                             , ("us"         , "<fc=#dee9f2>US</fc>")
+                             , ("jp"         , "<fc=#dee9f2>jp</fc>")
+                             ]
+        , Run StdinReader
+        ]
+   }
+

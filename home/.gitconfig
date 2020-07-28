@@ -1,0 +1,17 @@
+[core]
+        filemode = false
+        editor = vim
+        excludefile = ~/.gitignore_global
+[user]
+ 		email = firstlinuxmint@gmail.com
+		name = flm_yk012
+[merge]
+        tool = vimdiff
+[alias]
+        st = status
+        co = checkout
+        br = branch
+        up = rebase
+        ci = commit
+[color]
+        ui = auto

@@ -1,0 +1,11 @@
+{
+	"region for folding and unfolding": {
+	 	"prefix": "reg",
+	 	"body": [
+			 "// #region ",
+			 "",
+			 "// #endregion "
+	 	],
+	 	"description": "#region/#endgionを挿入します"
+	}
+}

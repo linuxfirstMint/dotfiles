@@ -1,0 +1,77 @@
+{
+    "editor.fontSize": 22,
+    "terminal.integrated.fontSize": 18,
+    "debug.console.fontSize": 20,
+    // OSのクリップボードを利用する
+    "vim.useSystemClipboard":true,
+    // 検索結果をハイライトする
+    "vim.hlsearch": true,
+    // easymotionを有効化する
+    //"vim.easymotion": true,
+    // easymotion候補キーの設定する
+    //"vim.easymotionKeys": "sdfghjkl",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Zenburn",
+    "window.zoomLevel": 0,
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "terminal.integrated.rendererType": "dom",
+    "python.jediEnabled": false,
+
+//    "vim.statusBarColorControl": true,
+//    "workbench.colorCustomizations": {},
+////    "vim.statusBarColors.normal": ["#8FBCBB", "#434C5E"],
+//    "vim.statusBarColors.insert": "#BF616A",
+//    "vim.statusBarColors.visual": "#B48EAD",
+//    "vim.statusBarColors.visualline": "#B48EAD",
+//    "vim.statusBarColors.visualblock": "#A3BE8C",
+//    "vim.statusBarColors.replace": "#D08770",
+//    "workbench.colorCustomizations": {},
+
+    // <leader>をスペースキーに変更する
+//    "vim.leader": "alt",
+//    "vim.normalModeKeyBindingsNonRecursive": [
+//        {
+            //"before": ["<Leader>", "x"],"commands": [":q!"]},         //tabを閉じる
+//            "before": ["<leader>", "o"],"after": [],"commands": [{ "command": "workbench.action.quickOpen" }]},
+//            {
+//            "before": ["<leader>", "o"],
+//            "after": [],
+//            "commands": [
+//                { "command": "workbench.action.quickOpen" },
+//            ]},
+//
+            //"before": ["<Leader>", "h"], "commands": ["workbench.action.previousEditor" ]},
+
+ //            "before": ["<leader>", "o"],
+//            "after": [],
+//            "commands": [
+//                { "command": "workbench.action.quickOpen" }]},
+////        {
+//           "before": ["<leader>", "s"],
+//            "after": [],
+//            "commands": [
+//                { "command": "workbench.action.showCommands" }]},
+//        {
+//            "before": ["<leader>", "l"],
+//            "after": ["ctl","l"],
+//            "commands": [
+//                { "command": "workbench.action.nextEditor" }]},
+//        {
+//            "before": ["<leader>", "h"],
+//            "after": ["ctrl","pageup"],
+//            "commands": [
+//                { "command": "workbench.action.previousEditor" }]},
+//        {
+//             "before": ["<leader>", "d"],
+//            "after": [ ],
+//            "commands": [
+//                { "command": "workbench.action.files.openFolder" }]},
+//        {
+//            "before": ["<leader>", "!"],
+//            "after": [],
+//            "commands": [
+//                { "command": "workbench.action.terminal.toggleTerminal" }]},
+//    ]
+}

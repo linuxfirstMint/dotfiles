@@ -1,0 +1,64 @@
+[[plugins]]
+repo =  'Shougo/dein.vim'
+
+[[plugins]] # カーソル位置のコンテキストに合わせてftを切り替える
+repo = 'osyo-manga/vim-precious'
+depends = ['context_filetype.vim']
+
+[[plugins]] # カーソル位置のコンテキストのftを判定するライブラリ
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]] # toml syntax
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+[[plugins]] # ディレクトリツリー表示
+repo = 'preservim/nerdtree'
+
+[[plugins]] # ウィンドウサイズ変更
+repo = 'simeji/winresizer'
+hook_add = """
+source ~/.config/nvim/plugins/winresizer.rc.vim
+"""
+
+[[plugins]] # ranger.vim の依存関係
+repo = 'rbgrouleff/bclose.vim'
+
+[[plugins]] # ディレクトリツリー
+repo = "francoiscabrol/ranger.vim"
+hook_add = """
+source ~/.config/nvim/plugins/ranger.rc.vim
+"""
+
+[[plugins]] # パワーライン
+repo = 'vim-airline/vim-airline'
+hook_add = """
+source ~/.config/nvim/plugins/vim-airline.rc.vim
+"""
+[[plugins]] # パワーライン
+repo = 'vim-airline/vim-airline-themes'
+
+
+[[plugins]] # カラースキーム
+repo = 'NLKNguyen/papercolor-theme'
+
+[[plugins]] # 履歴ファイルの検索
+repo = 'Shougo/unite.vim'
+hook_add = """
+source ~/.config/nvim/plugins/unite.rc.vim
+"""
+
+[[plugins]] # LSP
+repo = "neoclide/coc.nvim"
+merge = 0
+rev = "release"
+hook_add = """
+source ~/.config/nvim/plugins/coc.rc.vim
+"""
+
+#[[plugins]] #統合インターフェース強化(not32bit)
+#repo = "Shougo/denite.nvim"
+#hook_add = """
+#source ~/.config/nvim/plugins/denite.rc.vim
+#"""
+

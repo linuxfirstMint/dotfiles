@@ -362,11 +362,12 @@ zinit light zdharma/history-search-multi-word
 ## 0秒遅延読み込み
 # wait '!0' = 読み込み完了メッセージを出さない
  
-# 補完
+# 略語展開
 zinit ice wait'!0'; zinit light zsh-users/zsh-autosuggestions
 # シンタックスハイライト
 zinit ice wait'!0'; zinit light zdharma/fast-syntax-highlighting
-
+# 補完
+zinit ice wait'!0'; zinit light zsh-users/zsh-completions
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

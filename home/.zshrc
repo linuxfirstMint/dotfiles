@@ -353,16 +353,20 @@ zinit light romkatv/powerlevel10k  # <- ここで好きなテーマのGitHubリ�
 #agnoster/agnoster
 #Powerlevel9k/powerlevel9k
 #bhilburn/powerlevel9k
-## プラグイン
 
-# 補完
-zinit light zsh-users/zsh-autosuggestions
-
-# シンタックスハイライト
-zinit light zdharma/fast-syntax-highlighting
+### プラグイン
 
 # Ctrl+r でコマンド履歴を検索
 zinit light zdharma/history-search-multi-word
+
+## 0秒遅延読み込み
+# wait '!0' = 読み込み完了メッセージを出さない
+ 
+# 補完
+zinit ice wait'!0'; zinit light zsh-users/zsh-autosuggestions
+# シンタックスハイライト
+zinit ice wait'!0'; zinit light zdharma/fast-syntax-highlighting
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

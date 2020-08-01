@@ -28,7 +28,8 @@ set fileformats=unix,dos,mac "文字コードの自動認識
 set cursorline "カーソル行を強調
 set modeline "ファイル特有の設定を有効にする
 set smartindent "ノーマルモードからの改行時に自動でインデントを整える"
-set noswapfile "swapファイルを作らない
+set directory=$HOME/.tmp/nvim/swap "swpファイルの作成先
+set backupdir=$HOME/.tmp/nvim/buckup "バックアップファイルの作成先
 
 let mapleader="\<Space>"
 

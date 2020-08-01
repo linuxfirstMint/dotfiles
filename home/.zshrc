@@ -306,10 +306,8 @@ POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
 . /usr/lib/python3.8/site-packages/powerline/bindings/zsh/powerline.zsh
 
-
+## enable "cd" of homeshick command
 source "$HOME/.homesick/repos/homeshick.sh"
-
-
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then

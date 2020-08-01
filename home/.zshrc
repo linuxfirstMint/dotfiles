@@ -306,8 +306,16 @@ POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
 . /usr/lib/python3.8/site-packages/powerline/bindings/zsh/powerline.zsh
 
-## enable "cd" of homeshick command
+## enable "cd" of homeshick command 
 source "$HOME/.homesick/repos/homeshick.sh"
+
+## ヒストリファイル
+export LANG=ja_JP.UTF-8
+HISTSIZE=1000000
+SAVEHIST=1000000
+
+# 他のターミナルで実行したコマンドを使えるようにする
+setopt share_history
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then

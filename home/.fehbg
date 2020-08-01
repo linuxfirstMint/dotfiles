@@ -1,2 +1,2 @@
 #!/bin/sh
-'feh' '--bg-fill' '/home/kou/Pictures/Wallpapers/Linux_Mint_Wallpaper.jpg' 
+feh --no-fehbg --bg-fill '/usr/share/backgrounds/arcolinux/arco-wallpaper.jpg' 

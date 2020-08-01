@@ -14,6 +14,10 @@ on_ft = 'toml'
 
 [[plugins]] # ディレクトリツリー表示
 repo = 'preservim/nerdtree'
+hook_add = """
+source ~/.config/nvim/plugins/nerdtree.rc.vim
+"""
+
 
 [[plugins]] # ウィンドウサイズ変更
 repo = 'simeji/winresizer'
@@ -30,14 +34,13 @@ hook_add = """
 source ~/.config/nvim/plugins/ranger.rc.vim
 """
 
-[[plugins]] # パワーライン
+[[plugins]] # vim パワーライン
 repo = 'vim-airline/vim-airline'
 hook_add = """
 source ~/.config/nvim/plugins/vim-airline.rc.vim
 """
-[[plugins]] # パワーライン
+[[plugins]] # vim パワーライン
 repo = 'vim-airline/vim-airline-themes'
-
 
 [[plugins]] # カラースキーム
 repo = 'NLKNguyen/papercolor-theme'
@@ -56,9 +59,40 @@ hook_add = """
 source ~/.config/nvim/plugins/coc.rc.vim
 """
 
-#[[plugins]] #統合インターフェース強化(not32bit)
-#repo = "Shougo/denite.nvim"
-#hook_add = """
-#source ~/.config/nvim/plugins/denite.rc.vim
-#"""
+[[plugins]] #統合インターフェース
+repo = "Shougo/denite.nvim"
+hook_add = """
+source ~/.config/nvim/plugins/denite.rc.vim
+"""
+
+[[plugins]] #fzf 本体
+repo = "junegunn/fzf"
+build = './install --all'
+
+[[plugins]] #fzf と連携するvimプラグイン
+repo = "junegunn/fzf.vim"
+depends = ['fzf']
+hook_add = """
+source ~/.config/nvim/plugins/fzf.rc.vim
+"""
+
+
+[[plugins]] #which-key
+repo = "liuchengxu/vim-which-key"
+hook_add = """
+source ~/.config/nvim/plugins/vim-which-key.rc.vim
+"""
+
+[[plugins]] #自動整形
+repo = 'junegunn/vim-easy-align'
+hook_add = """
+source ~/.config/nvim/plugins/vim-easy-align.rc.vim
+"""
+
+[[plugins]] # git
+repo = "tpope/vim-fugitive"
+
+
+[[plugins]] # git
+repo = "airblade/vim-gitgutter"
 

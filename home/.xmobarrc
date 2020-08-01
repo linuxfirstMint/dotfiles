@@ -1,7 +1,7 @@
 Config {  
 
    -- appearance
-     font = "xft:Migu 1M:size=13"
+     font = "xft:Cica:size=13"
    , bgColor =      "#1a1a1a"
    , fgColor =      "#646464"
  

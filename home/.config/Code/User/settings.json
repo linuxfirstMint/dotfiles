@@ -1,77 +1,67 @@
 {
-    "editor.fontSize": 22,
-    "terminal.integrated.fontSize": 18,
-    "debug.console.fontSize": 20,
+    // フォント
+    "editor.fontFamily": " 'Ricty','Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontSize": 17,
+    "terminal.integrated.fontSize": 17,
+    "debug.console.fontSize": 17,
+
     // OSのクリップボードを利用する
     "vim.useSystemClipboard":true,
+
     // 検索結果をハイライトする
     "vim.hlsearch": true,
-    // easymotionを有効化する
-    //"vim.easymotion": true,
-    // easymotion候補キーの設定する
-    //"vim.easymotionKeys": "sdfghjkl",
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Zenburn",
-    "window.zoomLevel": 0,
+
+    // デフォルトシェルを変更
+    "terminal.integrated.shell.linux": "zsh",
+
+    // theme
+    "workbench.colorTheme": "GitHub Dark",
+
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-    "terminal.integrated.rendererType": "dom",
+
+    // ターミナルのレンダリング 
+    "terminal.integrated.rendererType": "auto",
+
     "python.jediEnabled": false,
 
-//    "vim.statusBarColorControl": true,
-//    "workbench.colorCustomizations": {},
-////    "vim.statusBarColors.normal": ["#8FBCBB", "#434C5E"],
-//    "vim.statusBarColors.insert": "#BF616A",
-//    "vim.statusBarColors.visual": "#B48EAD",
-//    "vim.statusBarColors.visualline": "#B48EAD",
-//    "vim.statusBarColors.visualblock": "#A3BE8C",
-//    "vim.statusBarColors.replace": "#D08770",
-//    "workbench.colorCustomizations": {},
+    // 改行コードをLF改行に変更
+    "files.eol": "\n",
+    
+    // エンコードを推測して開く
+    "files.autoGuessEncoding": true,
 
-    // <leader>をスペースキーに変更する
-//    "vim.leader": "alt",
-//    "vim.normalModeKeyBindingsNonRecursive": [
-//        {
-            //"before": ["<Leader>", "x"],"commands": [":q!"]},         //tabを閉じる
-//            "before": ["<leader>", "o"],"after": [],"commands": [{ "command": "workbench.action.quickOpen" }]},
-//            {
-//            "before": ["<leader>", "o"],
-//            "after": [],
-//            "commands": [
-//                { "command": "workbench.action.quickOpen" },
-//            ]},
-//
-            //"before": ["<Leader>", "h"], "commands": ["workbench.action.previousEditor" ]},
+    // ミニマップを常時表示・表示している文字は正確にしない(パフォーマンスup)
+    "editor.minimap.showSlider": "always",
+    "editor.minimap.renderCharacters": false,
 
- //            "before": ["<leader>", "o"],
-//            "after": [],
-//            "commands": [
-//                { "command": "workbench.action.quickOpen" }]},
-////        {
-//           "before": ["<leader>", "s"],
-//            "after": [],
-//            "commands": [
-//                { "command": "workbench.action.showCommands" }]},
-//        {
-//            "before": ["<leader>", "l"],
-//            "after": ["ctl","l"],
-//            "commands": [
-//                { "command": "workbench.action.nextEditor" }]},
-//        {
-//            "before": ["<leader>", "h"],
-//            "after": ["ctrl","pageup"],
-//            "commands": [
-//                { "command": "workbench.action.previousEditor" }]},
-//        {
-//             "before": ["<leader>", "d"],
-//            "after": [ ],
-//            "commands": [
-//                { "command": "workbench.action.files.openFolder" }]},
-//        {
-//            "before": ["<leader>", "!"],
-//            "after": [],
-//            "commands": [
-//                { "command": "workbench.action.terminal.toggleTerminal" }]},
-//    ]
+
+
+    "vspacecode.bindingOverrides": [
+    
+    ],
+
+     // Vim easymotion is required for Jump menu - <SPC> j
+    "vim.easymotion": true,
+    "vim.easymotionKeys": "sdfghjkl",
+    // Use system clipboard for vim
+    // Trigger the main which key menu with in the active editor with vim
+    // This cannot be put into keybindings.json because it will
+    // create conflict with Vim.
+    // https://github.com/stevenguh/spacecode/issues/3
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<space>"],
+            "commands": ["vspacecode.space"]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<space>"],
+            "commands": ["vspacecode.space"]
+        }
+    ],
+    "python.languageServer": "Microsoft",
+    "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWxcIixcImN1c3RvbUxpYnJhcmllc1wiOltcIkwuc2NyYXRjaHBhZFwiXSxcInBsdWdpbnNcIjpbXSxcInJlY2VudENvbG9yc1wiOltdLFwiZm9ybWF0V2lkdGhcIjpcIjI0MFwiLFwiY3JlYXRlVGFyZ2V0XCI6ZmFsc2UsXCJwYWdlRm9ybWF0XCI6e1wieFwiOjAsXCJ5XCI6MCxcIndpZHRoXCI6ODI3LFwiaGVpZ2h0XCI6MTE2OX0sXCJzZWFyY2hcIjp0cnVlLFwic2hvd1N0YXJ0U2NyZWVuXCI6dHJ1ZSxcImdyaWRDb2xvclwiOlwiI2QwZDBkMFwiLFwiZGFya0dyaWRDb2xvclwiOlwiIzZlNmU2ZVwiLFwiYXV0b3NhdmVcIjp0cnVlLFwicmVzaXplSW1hZ2VzXCI6bnVsbCxcIm9wZW5Db3VudGVyXCI6MCxcInZlcnNpb25cIjoxOCxcInVuaXRcIjoxLFwiaXNSdWxlck9uXCI6ZmFsc2UsXCJ1aVwiOlwiXCJ9In0=",
 }

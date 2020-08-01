@@ -28,9 +28,11 @@ import XMonad.Actions.SpawnOn
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal      = "gnome-terminal"
--- myTerminal      = "urxvt -e bash -c \"tmux new-session\""
-
+--myTerminal      = "gnome-terminal"
+--myTerminal      = "alacritty"
+--myTerminal      = "urxvt -e zsh -c \"tmux new-session\""
+--myTerminal      = "urxvj"
+myTerminal        = "urxvt -e zsh"
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = False
@@ -67,7 +69,7 @@ myWorkspaces = ["web", "code", "moni", "free"]
 --myWorkspaces    = ["1","2","3","4","5"]
 -- Border colors for unfocused and focused windows, respectively.
 --
-myNormalBorderColor  = darckBlack_Color
+myNormalBorderColor  = darkBlack_Color
 myFocusedBorderColor = darkGreen_Color
 
 
@@ -75,7 +77,7 @@ myFocusedBorderColor = darkGreen_Color
 --
 
 fullBlack_Color   = "#000000"
-darckBlack_Color  = "#1a1a1a"
+darkBlack_Color  = "#1a1a1a"
 darkGray_Color    = "#4e4e4e"
 darkAshGray_Color = "#919191"
 darkWhite_Color   = "#dee9f2"
@@ -92,13 +94,11 @@ brightPink_Color  = "#ff8ca4"
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch a terminal
-    [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
+    [ ((modm,               xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch dmenu
     , ((modm,               xK_p         ), spawn "dmenu_run -l 10 -m 1")
 
-    -- launch gmrun
-    -- , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
 
     -- close focused window
     , ((modm,               xK_c     ), kill)
@@ -125,7 +125,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_m     ), windows W.focusMaster  )
 
     -- Swap the focused window and the master window
-    , ((modm,               xK_Return), windows W.swapMaster)
+    --, ((modm .|. shiftMask,               xK_Return), windows W.swapMaster)
 
     -- Swap the focused window with the next window
     , ((modm .|. shiftMask, xK_j     ), windows W.swapDown  )
@@ -155,10 +155,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- , ((modm              , xK_b     ), sendMessage ToggleStruts)
 
     -- Quit xmonad
-    , ((modm .|. shiftMask, xK_Escape     ), io (exitWith ExitSuccess))
+    , ((modm,               xK_Escape), io (exitWith ExitSuccess))
 
     -- Restart xmonad
-    , ((modm              , xK_Escape     ), spawn "xmonad --recompile; xmonad --restart")
+    , ((modm .|. shiftMask, xK_r), spawn "xmonad --recompile; xmonad --restart")
 
     -- Run xmessage with a summary of the default keybindings (useful for beginners)
     , ((modm .|. shiftMask, xK_slash ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
@@ -260,8 +260,7 @@ myManageHook = composeAll
     , resource  =? "kdesktop"              -->  doIgnore
     --, className =? "Mikutter.rb"         -->  doShift (myWorkspaces !! 1)
     --, className =? "Mikutter.rb"         -->  doShift (myWorkspaces !! 2)
-    , className =? "firefox"         -->  doShift "free"
-    , className =? "gnome-terminal"         -->  doShift "free"
+    , className =? "firefox"         -->  doShift "web"
     --, className =? "Mikutter.rb"         -->  doShift (myWorkspaces !! 0)
     --, className =? "Corebird"            -->  doShift (myWorkspaces !! 0)
     --, className =? "/usr/bin/firefox"      -->  doShift (myWorkspaces !! 0)
@@ -303,6 +302,8 @@ myLogHook = return ()
 --     fadeOrigLogHook = fadeOutLogHook . fadeIf fadeSomeWindows
 --     fadeSomeWindows = className =? "URxvt"
 
+
+
 myXmobarPP = xmobarPP
   {
     ppVisible           =   xmobarColor darkWhite_Color  fullBlack_Color . pad
@@ -331,8 +332,6 @@ myXmobarPP = xmobarPP
 -- By default, do nothing.
 -- myStartupHook = return ()
 myStartupHook = do
-  --"~/data/pic/desktop.jpg"
-  --spawn "feh --bg-fill ~/Pictures/Wallpapers/Linux_Mint_Wallpaper.jpg"
   spawn "compton -c -r 2 -o 0.8 -l -2 -t -2"
   --spawn "xscreensaver"
   setWMName "LG3D"  -- for java apps
@@ -340,10 +339,9 @@ myStartupHook = do
   --spawn "gnome-terminal"
   --spawnOn "free" "gnome-terminal"
   --spawnOn "free" "firefox"
-
-
   --spawnOn "myWorkspaces !! 3" "firefox"
   --spawnOn "wk" "firefox"
+
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
 
@@ -356,7 +354,7 @@ main = do
   xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
   where
     -- Command to launch the bar.
-    myBar = "/home/kou/.local/bin/xmobar"
+    myBar = "xmobar $HOME/.xmobarrc"
     -- Custom PP, configure it as you like. It determines what is being written to the bar.
     --myPP = xmobarPP { ppCurrent = xmobarColor darkGreen_Color "" . wrap "<" ">" }
     myPP = myXmobarPP

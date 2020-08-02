@@ -365,6 +365,31 @@ zinit light romkatv/powerlevel10k  # <- ここで好きなテーマのGitHubリ�
 # Ctrl+r でコマンド履歴を検索
 zinit light zdharma/history-search-multi-word
 
+# fzf でよく使う関数の詰め合わせ
+zinit light mollifier/anyframe
+
+## fzf + anyframe 
+# key bindings settings
+
+# Ctrl+x -> b
+# fzf でディレクトリの移動履歴を表示
+bindkey '^xb' anyframe-widget-cdr
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+
+# Ctrl+x -> r
+# fzf でコマンドの実行履歴を表示
+bindkey '^xr' anyframe-widget-execute-history
+
+# Ctrl+x -> Ctrl+b
+# fzf でGitブランチを表示して切替え
+bindkey '^x^b' anyframe-widget-checkout-git-branch
+
+# ディレクトリ移動を高速化（fzf であいまい検索）
+zinit light b4b4r07/enhancd
+
+
+
 ## 0秒遅延読み込み
 # wait '!0' = 読み込み完了メッセージを出さない
  

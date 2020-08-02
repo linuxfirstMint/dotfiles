@@ -365,6 +365,12 @@ zinit light romkatv/powerlevel10k  # <- ここで好きなテーマのGitHubリ�
 # Ctrl+r でコマンド履歴を検索( fzfであいまい検索 )
 zinit light zdharma/history-search-multi-word
 
+# Gitの変更状態がわかる ls。ls の代わりにコマンド `k` を実行するだけ。
+zinit light supercrabtree/k
+
+# git のローカルリポジトリを一括管理（fzf でリポジトリへジャンプ）
+zinit light  motemen/ghq
+
 # fzf でよく使う関数の詰め合わせ
 zinit light mollifier/anyframe
 

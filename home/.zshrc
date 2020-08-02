@@ -381,6 +381,10 @@ zinit light mollifier/anyframe
 # fzf でGitブランチを表示して切替え
 bindkey '^x^b' anyframe-widget-checkout-git-branch
 
+# Ctrl+x -> g
+# GHQでクローンしたGitリポジトリを表示
+bindkey '^xg' anyframe-widget-cd-ghq-repository
+
 # ディレクトリ移動を高速化（fzf であいまい検索）
 zinit light b4b4r07/enhancd
 

@@ -362,7 +362,7 @@ zinit light romkatv/powerlevel10k  # <- ここで好きなテーマのGitHubリ�
 
 ### プラグイン
 
-# Ctrl+r でコマンド履歴を検索
+# Ctrl+r でコマンド履歴を検索( fzfであいまい検索 )
 zinit light zdharma/history-search-multi-word
 
 # fzf でよく使う関数の詰め合わせ
